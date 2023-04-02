@@ -45,7 +45,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        minSdkVersion 20
+        minSdkVersion 21
         targetSdkVersion 50
         applicationId "com.example.tell_me_more"
         // You can update the following values to match your application needs.

@@ -37,7 +37,9 @@ class _ScannerViewState extends State<ScannerView> {
 
     // issue with passing data over
     if(result != null) {
-      exhibit = Exhibit('Barcode Type: ${describeEnum(result!.format)}   Data: ${result!.code}');
+      // exhibit = Exhibit('Barcode Type: ${describeEnum(result!.format)}   Data: ${result!.code}');
+      exhibit = Exhibit('${result!.code}');
+
       WidgetsBinding.instance.addPostFrameCallback((_) {
         Navigator.pushReplacement(context, MaterialPageRoute(
           builder: (BuildContext context) => ExhibitView(),
