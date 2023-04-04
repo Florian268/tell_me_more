@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tell_me_more/views/instruction.dart';
-import 'package:tell_me_more/views/scanner.dart';
+import 'package:tell_me_more/views/instruction_view.dart';
 
 class LandingView extends StatelessWidget {
   const LandingView({Key? key}) : super(key: key);

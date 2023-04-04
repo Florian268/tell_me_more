@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tell_me_more/views/scanner.dart';
+import 'package:tell_me_more/views/scanner_view.dart';
 
 class InstructionView extends StatelessWidget {
   const InstructionView({Key? key}) : super(key: key);

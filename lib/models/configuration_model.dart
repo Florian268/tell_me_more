@@ -1,5 +1,5 @@
 enum AgeState { unspecified, child, teen, adult }
-class UserModel{
+class ConfigurationModel{
   late AgeState _age;
 
   userModel(){
