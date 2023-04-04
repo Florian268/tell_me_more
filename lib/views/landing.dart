@@ -9,7 +9,7 @@ class LandingView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Welcome'),
+        title: const Text('Welcome'),
       ),
       body: Container(
         decoration: const BoxDecoration(
@@ -21,7 +21,7 @@ class LandingView extends StatelessWidget {
         ),
         child: Align(
           child: Container(
-            alignment: Alignment(0.0, 0.5),
+            alignment: const Alignment(0.0, 0.5),
             child: SizedBox(
                 height: 65,
                 width: 120,

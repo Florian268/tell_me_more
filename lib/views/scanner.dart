@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:tell_me_more/models/exhibit.dart';
+import 'package:provider/provider.dart';
 import 'package:tell_me_more/views/exhibit.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'dart:developer';
 import 'dart:io';
 import 'package:flutter/foundation.dart';
+
+import '../view_models/llm_view_model.dart';
 
 class ScannerView extends StatefulWidget  {
   const ScannerView({Key? key}) : super(key: key);
@@ -16,7 +18,7 @@ class _ScannerViewState extends State<ScannerView> {
   Barcode? result;
   QRViewController? controller;
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
-  late Exhibit exhibit;
+  late LlmViewModel viewModel;
 
   @override
   void reassemble() {
@@ -29,6 +31,7 @@ class _ScannerViewState extends State<ScannerView> {
 
   @override
   Widget build(BuildContext context) {
+    viewModel = Provider.of<LlmViewModel>(context, listen: true);
     // bug of screen not loading
     if(controller != null && mounted){
       controller!.pauseCamera();
@@ -37,26 +40,22 @@ class _ScannerViewState extends State<ScannerView> {
 
     // issue with passing data over
     if(result != null) {
-      // exhibit = Exhibit('Barcode Type: ${describeEnum(result!.format)}   Data: ${result!.code}');
-      exhibit = Exhibit('${result!.code}');
-
+      viewModel.createNewExhibit('${result!.code}');
       WidgetsBinding.instance.addPostFrameCallback((_) {
         Navigator.pushReplacement(context, MaterialPageRoute(
-          builder: (BuildContext context) => ExhibitView(),
-          settings: RouteSettings(
-            arguments: exhibit,),));
+          builder: (BuildContext context) => const ExhibitView()));
       });
     }
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Scanner'),
-      ),
-      body: Column(
+        appBar: AppBar(
+          title: Text('Scanner'),
+        ),
+        body: Column(
 
-        children: <Widget>[
-          Expanded(flex: 4, child: _buildQrView(context)),
-    ]
-     )
+            children: <Widget>[
+              Expanded(flex: 4, child: _buildQrView(context)),
+            ]
+        )
     );
   }
 

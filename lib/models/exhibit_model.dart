@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-class Exhibit {
+class ExhibitModel {
 
-  Exhibit(this.qr){
-    conversation = "";
+  ExhibitModel(this.qr){
     if(qr.substring(0,4) == "http"){
       qrType = 1;
     }else{
@@ -11,18 +10,17 @@ class Exhibit {
 
     if(qrType == 0) {
       final exhibitInfo = qr.split('\$');
-      exhibitName = exhibitInfo[0];
+      _exhibitName = exhibitInfo[0];
       exhibitContext = exhibitInfo[1];
     }
   }
 
   String qr = "";
   int qrType = 0; // planned feature to determine QR context
-  String exhibitName = "";
+  late String _exhibitName;
   String exhibitContext = "";
-  String conversation = "";
 
-  String getConversation() {
-    return conversation;
+  String getExhibitName() {
+    return _exhibitName;
   }
 }

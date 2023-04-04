@@ -16,7 +16,7 @@ class InstructionView extends StatelessWidget {
             Column(
               children: [
               Container(
-              padding: EdgeInsets.only(top:100),
+              padding: const EdgeInsets.only(top:100),
               width: 310.0,
 
                child: const Text("Welcome to your virtual tour guide.",
@@ -42,7 +42,7 @@ class InstructionView extends StatelessWidget {
             ),
           IconButton(
               alignment: Alignment.topCenter,
-              padding: EdgeInsets.only(top:300),
+              padding: const EdgeInsets.only(top:300),
               icon: Image.asset('assets/images/scan_anim02.gif'),
               iconSize: 500,
             onPressed: () {
