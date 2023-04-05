@@ -4,15 +4,15 @@ import '../models/configuration_model.dart';
 class UserViewModel with ChangeNotifier {
   late ConfigurationModel config;
 
-  UserViewModel(){
-    config = ConfigurationModel();
+  UserViewModel(ConfigurationModel configurationModel){
+    config = configurationModel;
   }
 
-  getAge(){
-
+  AgeState getAge(){
+    return config.getAge();
   }
 
-  setAge(){
-
+  setAge(AgeState age){
+    config.setAge(age);
   }
 }

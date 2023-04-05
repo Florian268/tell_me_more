@@ -10,12 +10,13 @@ class ExhibitView extends StatefulWidget {
 
 class _ExhibitViewState extends State<ExhibitView> {
 
-  late LlmViewModel viewModel;
+  late LlmViewModel llmViewModel;
+
   final _text = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    viewModel = Provider.of<LlmViewModel>(context, listen: true);
+    llmViewModel = Provider.of<LlmViewModel>(context, listen: true);
     return Scaffold(
       resizeToAvoidBottomInset: false,
         appBar: AppBar(
@@ -27,7 +28,7 @@ class _ExhibitViewState extends State<ExhibitView> {
              crossAxisAlignment: CrossAxisAlignment.center,
              children: <Widget> [
                       const SizedBox(height: 10),
-                      Text(viewModel.getExhibitName(), style: const TextStyle(fontSize: 25),),
+                      Text(llmViewModel.getExhibitName(), style: const TextStyle(fontSize: 25),),
                       const SizedBox(height: 10),
                       SizedBox(
                         width: 340,
@@ -47,7 +48,7 @@ class _ExhibitViewState extends State<ExhibitView> {
                         icon: const Icon(Icons.spatial_audio),
                         onPressed: () {
                           setState(() async {
-                            viewModel.startTts(viewModel.getLlmResponse());
+                            llmViewModel.startTts(llmViewModel.getLlmResponse());
                           });
                          },
                        ),
@@ -57,7 +58,7 @@ class _ExhibitViewState extends State<ExhibitView> {
                             icon: const Icon(Icons.stop),
                             onPressed: () {
                               setState(() async {
-                                viewModel.stopTts();
+                                llmViewModel.stopTts();
                               });
                             },
                           ),
@@ -65,7 +66,7 @@ class _ExhibitViewState extends State<ExhibitView> {
                             IconButton(
                               icon: const Icon(Icons.auto_delete),
                               onPressed: () {
-                                viewModel.resetChatHistory();
+                                llmViewModel.resetChatHistory();
                               },
                             ),
                           //Text('stop'),
@@ -74,7 +75,7 @@ class _ExhibitViewState extends State<ExhibitView> {
 
                       ElevatedButton(
                         onPressed: () async {
-                            viewModel.askLlm(_text.text);
+                            llmViewModel.askLlm(_text.text);
                         },
                         child: const Text('Ask GPT'),
                       ),
@@ -82,7 +83,7 @@ class _ExhibitViewState extends State<ExhibitView> {
                       Container(
                           alignment: Alignment.center,
                           width: 340,
-                          child: Text(viewModel.getLlmResponse())
+                          child: Text(llmViewModel.getLlmResponse())
                       ),
                     ],
                 ),

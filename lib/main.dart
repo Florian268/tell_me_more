@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:tell_me_more/view_models/llm_view_model.dart';
 import 'package:tell_me_more/view_models/user_view_model.dart';
+import 'models/configuration_model.dart';
 import 'views/landing_view.dart';
 import 'package:provider/provider.dart';
+
+// this feels so wrong. maybe replace it with a MV controller
+ConfigurationModel configurationModel = ConfigurationModel();
 
 void main() {
   runApp(
       MultiProvider(
         providers: [
-          ChangeNotifierProvider<LlmViewModel>(create: (_) => LlmViewModel("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"),),
-          ChangeNotifierProvider<UserViewModel>(create: (_) => UserViewModel(),),
+          ChangeNotifierProvider<LlmViewModel>(create: (_) => LlmViewModel("", configurationModel),),
+          ChangeNotifierProvider<UserViewModel>(create: (_) => UserViewModel(configurationModel),),
         ],
         child: MyApp(),
       )
