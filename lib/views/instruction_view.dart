@@ -13,13 +13,13 @@ class InstructionView extends StatefulWidget {
 }
 
 class _InstructionViewState extends State<InstructionView> {
-  late int? _value;
+  late int _value;
   late UserViewModel userViewModel;
 
   @override
   Widget build(BuildContext context) {
-    userViewModel = Provider.of<UserViewModel>(context, listen: true);
-    _value = AgeState.values.indexOf(userViewModel.getAge());
+     userViewModel = Provider.of<UserViewModel>(context, listen: true);
+     _value = AgeState.values.indexOf(userViewModel.getAge());
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -49,7 +49,7 @@ class _InstructionViewState extends State<InstructionView> {
                   ),
                   textAlign: TextAlign.center,
                 )),
-            ageSelector(),
+            ageSelector(_value),
             IconButton(
                 padding: const EdgeInsets.only(top: 30),
                 icon: Image.asset('assets/images/scan_anim02.gif'),
@@ -64,7 +64,7 @@ class _InstructionViewState extends State<InstructionView> {
     );
   }
 
-  Widget ageSelector() {
+  Widget ageSelector(int _value) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -81,7 +81,9 @@ class _InstructionViewState extends State<InstructionView> {
                 selected: _value == index,
                 onSelected: (bool selected) {
                   setState(() {
-                    _value = selected ? index : null;
+                    if(selected){
+                      _value = index;
+                    }
                     userViewModel.setAge(AgeState.values[index]);
                   });
                 },

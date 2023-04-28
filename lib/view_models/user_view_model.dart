@@ -8,11 +8,12 @@ class UserViewModel with ChangeNotifier {
     config = configurationModel;
   }
 
-  AgeState getAge(){
+  AgeState getAge() {
     return config.getAge();
   }
 
-  setAge(AgeState age){
+  setAge(AgeState age) {
     config.setAge(age);
+    notifyListeners();
   }
 }

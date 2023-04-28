@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:tell_me_more/models/configuration_model.dart';
 import '../models/exhibit_model.dart';
 import '../models/chat_model.dart';
-import '../services/gpt.dart';
-import '../services/tts.dart';
+import '../utility/gpt.dart';
+import '../utility/tts.dart';
 
 class LlmViewModel with ChangeNotifier {
 
@@ -29,7 +29,8 @@ class LlmViewModel with ChangeNotifier {
 
   void askLlm(String question) async {
     // make method to create prompt
-    String prompt = "context" + exhibit.exhibitContext + "/n" + chatModel.getChatHistory() + "/n" + question + "Explain to me as a " + configurationModel.getAge().name;
+    AgeState? age = configurationModel.getAge();
+    String prompt = "context" + exhibit.exhibitContext + "/n" + chatModel.getChatHistory() + "/n" + question + "Explain to me as a " + age!.name;
     print(prompt);
     String response = await gpt.chatGpt3(prompt);
     chatModel.setChatHistory(chatModel.getChatHistory() + question + response);
