@@ -18,8 +18,8 @@ class _InstructionViewState extends State<InstructionView> {
 
   @override
   Widget build(BuildContext context) {
-     userViewModel = Provider.of<UserViewModel>(context, listen: true);
-     _value = AgeState.values.indexOf(userViewModel.getAge());
+    userViewModel = Provider.of<UserViewModel>(context, listen: true);
+    _value = AgeState.values.indexOf(userViewModel.getAge());
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -49,7 +49,7 @@ class _InstructionViewState extends State<InstructionView> {
                   ),
                   textAlign: TextAlign.center,
                 )),
-            ageSelector(_value),
+            ageSelector(),
             IconButton(
                 padding: const EdgeInsets.only(top: 30),
                 icon: Image.asset('assets/images/scan_anim02.gif'),
@@ -64,7 +64,7 @@ class _InstructionViewState extends State<InstructionView> {
     );
   }
 
-  Widget ageSelector(int _value) {
+  Widget ageSelector() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
