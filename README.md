@@ -5,10 +5,10 @@
 Additionally, new features planned are to allow museums to collect data what users are interested in, connect the app to a web application by George Wang for the exhibit to speak back to the user, and train a separate LLM on a digital archive and corpus. Currently, Florian is working with a team on the redesign to make the app look neater and allow text to be scanned to not depend on QR codes.
 
 # Video
-- Demo used during Hackathon Presentation: https://youtube.com/shorts/reDhDZS3mqc?si=OoGEmtluyvcnSSpN
-- Demo video used during app redesign: https://youtu.be/Cos3Drm1VlU?si=FA7-JVn1EbSy9NHy
+- [Demo used during Hackathon Presentation](https://youtube.com/shorts/reDhDZS3mqc?si=OoGEmtluyvcnSSpN)
+- [Demo video used during app redesign](https://youtu.be/Cos3Drm1VlU?si=FA7-JVn1EbSy9NHy)
 
 # Links
-- George Wang’s Web Application: https://github.com/wqz9822/creative3d-llm.git
-- Presentation Slides: https://docs.google.com/presentation/d/1bd4sAt-vag0w2NGFgGQxUQAuzI_LhYd_b1bydqjWJB8/edit?usp=sharing
-- Figma Redesign: https://www.figma.com/file/iL42KPkNvmjUMfggj7NLco/My-Tour%3A-Carnegie-Museum?type=design&node-id=0%3A1&mode=design&t=XRC3ds1mUBJ6CT1C-1
+- [George Wang’s Web Application](https://github.com/wqz9822/creative3d-llm.git)
+- [Presentation Slides](https://docs.google.com/presentation/d/1bd4sAt-vag0w2NGFgGQxUQAuzI_LhYd_b1bydqjWJB8/edit?usp=sharing)
+- [Figma Redesign](https://www.figma.com/file/iL42KPkNvmjUMfggj7NLco/My-Tour%3A-Carnegie-Museum?type=design&node-id=0%3A1&mode=design&t=XRC3ds1mUBJ6CT1C-1)
